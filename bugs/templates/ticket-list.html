@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="new-ticket-link">
+    <a href="{% url 'ticket_create' %}"><em>Submit New Ticket</em></a>
+</div>
+<ul class="ticket-ul">
+    {% for ticket in tickets %}
+        <a href="{% url 'ticket_detail' ticket.pk %}">
+            <li class="ticket-container listing-page-container">
+                <span class="ticket-row-title">Ticket Number: </span><span>{{ticket.pk}}</span><br>
+                <span class="ticket-row-title">Description: </span><span>{{ticket.description}}</span><br>
+                <span class="ticket-row-title">Resolved: </span>
+                {% if ticket.is_resolved %}
+                <span>Yes</span><br>
+                {% else %}
+                <span>No</span><br>
+                {% endif %}
+            </li>
+        </a>
+    {% endfor %}
+    {% if tickets %}
+    <li class="pageination-container">
+        {% include "includes/pageination.html" %}
+    </li>
+    {% endif %}
+</ul>
+{% endblock %}

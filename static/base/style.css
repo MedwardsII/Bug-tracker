@@ -1,0 +1,155 @@
+/* CSS reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*****custom css*****/
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+ul {
+    list-style: none;
+}
+.ticket-ul a {
+    text-decoration: none;
+    color: black;
+}
+.listing-page-container:hover {
+	cursor: pointer;
+	background-color:cadetblue;
+	transition: 0.3s;
+	transform: scale(1.005);
+}
+.create-ul div {
+	margin-bottom: 10px;
+}
+.ticket-container {
+    padding: 20px;
+    margin: 10px;
+    border: solid black 1px;
+    border-radius: 10px;
+}
+.ticket-container div {
+	margin-bottom: 5px;
+}
+.ticket-row-title {
+    font-weight: bold;
+    color: blue;
+}
+
+.nav-button-container {
+	margin-top: 10px;
+}
+#id_description {
+	max-width: 100%;
+	min-width: 70%;
+}
+#id_comment {
+	max-width: 90%;
+	min-width: 70%;
+}
+.comment-form {
+	margin: 10px 0 10px 15px;
+}
+.comments-container {
+	margin-bottom: 20px;
+}
+footer {
+	background-color: lightgrey;
+	margin-top: auto;
+	padding: 5px 0 5px 0;
+}
+.footer-main-container {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.footer-social-container {
+	display: flex;
+	justify-content: center;
+}
+.comment-count {
+	margin: 0 10px 0 15px;
+	font-weight: bold;
+}
+.comment-description-container {
+	margin-bottom: 10px;
+}
+.comment-postedby {
+	padding-top: 20px;
+	font-style: italic;
+}
+.pageination-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+.step-links a {
+	margin: 0 5px 0 5px;
+	font-size: 1.2em;
+}
+.step-links a:hover {
+	text-decoration: underline;
+}
+.nav-item:hover {
+	text-decoration: underline;
+	transform: scale(1.05);
+	transition: 0.2s;
+}
+.step-links a {
+	font-weight: bold;
+}
+.new-ticket-link {
+	margin: 20px;
+	font-style: italic;
+	font-size: 1.2em;
+}
+/******css for laptops******/
+@media screen and (min-width: 481px) {
+	.remove-border {
+		border: none;
+	}
+}

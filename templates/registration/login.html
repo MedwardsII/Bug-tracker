@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block content %}
+{% if form.errors and not form.non_field_errors %}
+<p class="errornote">
+{% if form.errors.items|length == 1 %}{% trans "Please correct the error below." %}{% else %}{% trans "Please correct the errors below." %}{% endif %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+<div class="d-flex flex-column justify-content-center align-items-center h-100 mt-5 ps-4 pe-4">
+  {% if user.is_authenticated %}
+  <p class="errornote">
+  {% blocktrans trimmed %}
+      You are authenticated as {{ username }}, but are not authorized to
+      access this page. Would you like to login to a different account?
+  {% endblocktrans %}
+  </p>
+  {% endif %}
+
+  <form action="{% url 'login' %}" method="post" id="login-form" class="border border-light bg-light rounded p-4">
+    {% csrf_token %}
+    <div class="input-group mb-2">
+      <span class="text-center">{{ form.username.errors }}</span><br>
+      <span>{{ form.username }}</span>
+    </div>
+    <div class="input-group mb-2">
+      <span>{{ form.password.errors }}</span><br>
+      <span>{{ form.password }}</span>
+    </div>
+    <div class="submit-row d-flex justify-content-center">
+      <label>&nbsp;</label><input type="submit" value="{% trans 'Log in' %}">
+    </div>
+  </form>
+  <script>
+    setPlaceholderLogin() // setting placeholder for login form
+  </script>
+</div>
+{% endblock %}

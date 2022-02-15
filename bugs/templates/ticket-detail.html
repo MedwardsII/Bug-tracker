@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="ticket-ul">
+    <li class="ticket-container">
+        <div>
+            <span class="ticket-row-title">Ticket Number: </span><span>{{ticket.pk}}</span>
+        </div>
+        <div>
+            <span class="ticket-row-title">Resolved: </span>
+            {% if ticket.is_resolved %}
+            <span>Yes</span><br>
+            {% else %}
+            <span>No</span><br>
+            {% endif %}
+        </div>
+        <div>
+            <span class="ticket-row-title">Description: </span><span>{{ticket.description}}</span>
+        </div>
+        <div>
+            <span class="ticket-row-title">Created On: </span><span>{{ticket.created_on}}</span>
+        </div>
+        <div>
+            <span class="ticket-row-title">Last Updated: </span><span>{{ticket.last_updated}}</span>
+        </div>
+        <div>
+            <span class="ticket-row-title">Created By: </span><span>{{ticket.creator}}</span>
+        </div>
+        <div class="nav-button-container">
+            <input type="button" value="Back" onclick="location.href = '/tickets'">
+            <script type="text/javascript">const ticketPk = "{{ticket.pk}}"</script>
+            <input type="button" value="Edit" onclick="location.href = `update/${ticketPk}`">
+            <input type="button" value="Delete" onclick="deleteConfirmation(ticketPk)">
+        </div>
+    </li>
+</ul>
+<div class="comments-container">
+    {% include "includes/ticket-comments-display.html" %}
+</div>
+{% endblock %}

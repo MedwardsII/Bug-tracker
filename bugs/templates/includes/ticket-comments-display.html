@@ -1,0 +1,32 @@
+{% load ticket_filter %}
+
+<form method="POST" action="{% url 'ticket_detail' ticket.pk %}" class="comment-form" name="comment-form">
+    {% csrf_token %}
+    <div>
+        {{form.comment}}
+    </div>
+    <script>setPlaceholderCommentText()</script>
+    <div class="nav-button-container">
+        <input type="submit" value="Post">
+    </div>
+</form>
+<div>
+    <span class="comment-count">{{ comments|length }} Comment(s)</span>
+</div>
+<ul class="ticket-ul">
+    {% for comment in page_obj %}
+    <li class="ticket-container">
+        <div class="comment-description-container">
+            <span>{{ comment.comment }}</span>
+        </div>
+        <div>
+            <span class="comment-postedby">Post by {{ comment.creator }} on {{ comment.created_on }}</span>
+        </div>
+    </li>
+    {% endfor %}
+    {% if comments|length > 5 %}
+    <li class="pageination-container">
+        {% include "includes/pageination.html" %}
+    </li>
+    {% endif %}
+</ul>

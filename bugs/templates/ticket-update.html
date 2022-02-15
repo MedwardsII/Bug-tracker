@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="{% url 'ticket_update' ticket.pk %}">
+    {% csrf_token %}
+    <ul class="ticket-ul create-ul">
+        <li class="ticket-container remove-border">
+            <div>
+                <lablel class="ticket-row-title" for='id_project'>Project: </lablel><span>{{form.project}}</span>
+            </div>
+            <div>
+                <lablel class="ticket-row-title" for='id_description'>Description:</lablel>
+            </div>
+            <div>
+                <span>{{form.description}}</span>
+            </div>
+            <div>
+                <lablel class="ticket-row-title" for='id_priority'>Priority: </lablel><span>{{form.priority}}</span>
+            </div>
+            <div>
+                <lablel class="ticket-row-title" for='id_is_resolved'>Resolved: </lablel><span>{{form.is_resolved}}</span>
+            </div>
+            <div>
+                <lablel class="ticket-row-title" for='id_is_resolved'>Last Updated: </lablel><span>{{ticket.last_updated}}</span>
+            </div>
+            <div>
+                <span>Created by {{ticket.creator}} on {{ticket.created_on}}</span>
+            </div>
+            <div class="nav-button-container">
+                <input type="button" value="Back" onclick="location.href = `{% url 'ticket_detail' ticket.pk %}`">
+                <input type="reset">
+                <input type="submit">
+            </div>
+        </li>
+    </ul>
+</form>
+{% endblock %}
