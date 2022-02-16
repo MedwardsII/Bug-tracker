@@ -17,6 +17,15 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import views as auth_views
 from bugs.forms import UserLoginForm
+from bugs import views_api
+from rest_framework.routers import DefaultRouter
+
+# api setup
+router = DefaultRouter()
+router.register(r'tickets', views_api.TicketViewSet)
+router.register(r'projects', views_api.ProjectViewSet)
+router.register(r'comments', views_api.TicketCommentViewSet)
+
 
 urlpatterns = [
     path('admin', admin.site.urls),
@@ -36,4 +45,6 @@ urlpatterns = [
         ),
         name='logout'
     ),
+    path('api/', include((router.urls, 'api'))),
+    path('api/login', views_api.LoginView.as_view(), name='login')
 ]
