@@ -25,8 +25,8 @@ SESSION_COOKIE_AGE = 1800
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = 'unsecure-0zCVdHXtqbYBA873y9kJX1tDmWznSAAaereCwS0kb'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'unsecure-0zCVdHXtqbYBA873y9kJX1tDmWznSAAaereCwS0kb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
