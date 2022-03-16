@@ -46,5 +46,5 @@ urlpatterns = [
         name='logout'
     ),
     path('api/', include((router.urls, 'api'))),
-    path('api/login', views_api.LoginView.as_view(), name='login')
+    path('api/login', views_api.LoginView.as_view(), name='api_login')
 ]
