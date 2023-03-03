@@ -1,6 +1,5 @@
 # Description
-Small personal Django web application to create, view, and edit tickets regarding issues discovered during the development cycle of an application.
-> *Note: This github is strickly for illustration purposes only.*
+Web-based bug tracker using the Django Python framework. It allows users to collaboratively manage and update bug reports, with features such as user authentication, assigning bugs to specific users, and advanced search capabilities. The project sharpened my skills in front-end and back-end web development, while also providing me with valuable experience in bug tracking and issue resolution.
 
 # Technologies
 - Python 3.10.1
@@ -8,6 +7,12 @@ Small personal Django web application to create, view, and edit tickets regardin
 - Django REST API Framework
 - JavaScript
 - HTML / CSS
+
+# Lessons Learned
+- Creation of a REST API.
+- Further depth of User authentication and views.
+- Development of multiple page site.
+- Deployment of a Django application to a server(Nginx).
 
 # Features
 - ***Create a submission for and delete a ticket.***
